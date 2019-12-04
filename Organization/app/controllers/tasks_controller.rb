@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     def index
         @tasks = Task.all
-        render json: @tasks
+        render json: @tasks, include:[:rooms]
     end
 
     def show
@@ -19,12 +19,14 @@ class TasksController < ApplicationController
     end
     
     def update
-        @task = Task.find(params[:id])
+        @task = Task.find_by(params[:id])
         Task.update
     end
 
-    def delete
-        @task = Task.find(params[:id])
-        Task.destroy
+    private
+
+    def cleaner_params
+        params.require(:cleaner).permit(room_ids: [])
     end
+
 end

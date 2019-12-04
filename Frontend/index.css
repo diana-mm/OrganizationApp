@@ -1,0 +1,171 @@
+
+body{
+    background-color: #d9d1d0;
+}
+
+header{
+    background-color: #E2DCDC;
+    padding: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    font-family: objektiv-mk2, sans-serif;
+    color: #096E6D;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 50%;
+    position: sticky;
+}
+
+header > img{
+    height:70px;
+    width: 280px;
+}
+
+header > nav{
+    align-self: center;
+    font-size: large;
+    font-weight: 400;
+    display: flex;
+}
+
+header > nav > a{
+    padding: 2px;
+    text-decoration: none;
+    color: #096E6D;
+}
+
+#slideshow {
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.slide-wrapper {
+width: 2912px;
+-webkit-animation: slide 25s ease infinite;
+}
+
+.slide {
+float: left;
+}
+ 
+.slide > img{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+@-webkit-keyframes slide {
+17.5% {margin-left: 25%;}
+35% {margin-left: 0%;}
+52.5% {margin-left: -25%;}
+70% {margin-left: -50%;}
+87.5% {margin-left: -75%;}
+}
+
+#intro{
+    font-family: objektiv-mk2, sans-serif;
+    font-size: x-large;
+    font-weight: bolder;
+    color:#443140;
+    align-self: center;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+#intro > h2{
+    border-style: solid;
+    text-align: center ;
+    padding: 5px;
+    border-width: 2px;
+    border-color: #096E6D;
+    background-color: #E2DCDC;
+}
+
+.steps{
+    display: flex;
+    flex-flow: row wrap;
+    font-size: large;
+    justify-content: space-between;
+}
+
+.steps > #step{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-width: 2px;
+    border-color: #096E6D;
+    padding: 12px;
+    width: 25%;
+    height: 341.333px;
+    font-size: 14pt;
+    background-color: #E2DCDC;
+    /* justify-content: space-between; */
+}
+
+.steps > #step > p{
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+.steps > #step > #one{
+    width: 100%;
+    height: auto;
+    align-self: center;
+    overflow: hidden;
+}
+
+.steps > #step > #three{
+    width: 100%;
+    height: auto;
+    align-self: center;
+    overflow: hidden;
+}
+
+.steps > #step > #five{
+    width: 100%;
+    height: auto;
+    align-self: center;
+    overflow: hidden;
+}
+
+.steps > #step{
+    display: flex;
+    flex-direction: column;
+}
+
+.steps > #step > #task-list{
+    font-size: 9pt;
+    font-weight: 400;
+    list-style: none;
+}
+
+.steps > #step > button{
+    width: 35% ;
+    font-family: objektiv-mk2, sans-serif;
+    color: #096E6D;
+    align-self: center;
+    margin-top: 2%;
+}
+
+#form-card{
+    background-color: #443140;
+    z-index: 1;
+    margin-top: -75%;
+    width: 75%;
+    padding: 20px;
+    border: 2px solid #E2DCDC;
+    border-style: outset;
+    color: #E2DCDC;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#form-card > span > form{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#form-card > span > form > input{
+    margin: 2px;
+}
