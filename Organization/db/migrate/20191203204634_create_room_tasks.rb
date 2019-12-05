@@ -3,6 +3,7 @@ class CreateRoomTasks < ActiveRecord::Migration[6.0]
     create_table :room_tasks do |t|
       t.references :room
       t.references :task
+      t.boolean :task_status
 
       t.timestamps
     end

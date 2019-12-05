@@ -1,21 +1,25 @@
 class TasksController < ApplicationController
     def index
         @tasks = Task.all
-        render json: @tasks, include:[:rooms]
+        render json: @tasks, include:[:rooms, :room_tasks]
     end
 
     def show
         @task = Task.find(params[:id])
-        render json: @task
+        render json: @task, include:[:rooms, :room_tasks]
     end
 
     def create
         @task = Task.create(
             name: params[:name],
             description: params[:description],
-            status: "Start"
+            status: params[:status],
         )
-        render json: @task
+        @roomTask = RoomTask.create(
+            room_id: params[:room_id],
+            task: @task
+        )
+        render json: @task, include: [:rooms]
     end
     
     def update
@@ -26,7 +30,7 @@ class TasksController < ApplicationController
     private
 
     def cleaner_params
-        params.require(:cleaner).permit(room_ids: [])
+        params.require(:cleaner).permit(room_id: [])
     end
 
 end
