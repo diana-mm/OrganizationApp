@@ -18,4 +18,9 @@ class Room < ApplicationRecord
         self.status =  (float_true/all_tasks)* 100
         self.update(status: self.status)
     end
+
+    def remove_task
+        room_task = self.room_task.find_by(task_id: task_id)
+        room_task.destroy
+    end
 end

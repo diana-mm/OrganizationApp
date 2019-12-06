@@ -1,50 +1,55 @@
-const roomCard = document.querySelector('.steps')
+const roomCardHolder = document.querySelector('.steps')
 const newRoomForm = document.querySelector('#new-room-form')
 
 fetch(`http://localhost:3000/rooms`)
 .then(response => response.json())
 .then(rooms => rooms.forEach(room => {
+    const roomCard = document.createElement('div')
     const roomName = document.createElement('h3')
     const newTask = document.createElement('button')
     const roomStatus = document.createElement('p')
     const roomTasks = document.createElement('li')
     const deleteCard = document.createElement('button')
+    const buttonCard = document.createElement('div')
 
     
     roomName.innerText = room.name
     roomName.value = room.id
-    roomName.id = 'step'
+    roomCard.id = 'step'
     newTask.innerText = 'new task'
     deleteCard.innerText = 'delete room'
     deleteCard.id = 'delete-button'
     roomStatus.innerText = room.status + "% Completed"
     roomStatus.value = room.status
+    roomStatus.id = 'status'
+    buttonCard.id = 'button-card'
     
-
+    roomCardHolder.appendChild(roomCard)
     roomCard.appendChild(roomName)
+    buttonCard.append(newTask, deleteCard)
 
-    newRoomForm.addEventListener('submit', function(event){
-        event.preventDefault()
+    // newRoomForm.addEventListener('submit', function(event){
+    //     event.preventDefault()
 
-        const roomName = new FormData(event.target)
-        const name = roomName.get('name')
-        const newRoom = document.createElement('h3')
+    //     const roomName = new FormData(event.target)
+    //     const name = roomName.get('name')
+    //     const newRoom = document.createElement('h3')
 
-        newRoom.innerText = name
-        newRoom.id = 'step'
+    //     newRoom.innerText = name
+    //     newRoom.id = 'step'
 
-        roomCard.appendChild(newRoom, newTask)
+    //     roomCard.appendChild(newRoom, newTask)
 
-        fetch(`http://localhost:3000/rooms`,{
-            method: 'POST',
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({name})
-        }).then(event.target.reset())
+    //     fetch(`http://localhost:3000/rooms`,{
+    //         method: 'POST',
+    //         headers:{
+    //             'Accept':'application/json',
+    //             'Content-Type':'application/json',
+    //         },
+    //         body: JSON.stringify({name})
+    //     }).then(event.target.reset())
     
-    })
+    // }) This is a future feature to be added
 
     room.tasks.map(task => {
         const taskName = document.createElement('p')
@@ -54,32 +59,37 @@ fetch(`http://localhost:3000/rooms`)
         fetch(`http://localhost:3000/tasks/${task.id}`)
             .then(response => response.json())
             .then(task =>{
-                task.room_tasks.map(rt => {
-                    deleteButton.value = rt.id
+                task.room_tasks.find(room_task => {
+                    if (room_task.task_id === task.id && room_task.room_id === roomName.value){
+                            deleteButton.value = room_task.id
+                        }
+                
                 })
                 deleteButton.addEventListener('click', function(event) {
                     event.preventDefault()
+                    event.target.parentNode.remove()
                     fetch(`http://localhost:3000/room_tasks/${deleteButton.value}`,{
                         method: 'DELETE'
                     })
-                    event.target.parentNode.remove()
                 })
             })
 
         roomTasks.id = 'task-list'
         taskName.innerText = task.name
+        taskName.id = 'task-line'
         checkBox.type = 'checkBox'
         checkBox.value = task.id
         newTask.value = task.id
         deleteButton.id = 'task-delete'
         deleteButton.innerText = 'remove'
         
-        const currentRoomTasks = room.room_tasks.find(room_task => {
-            return room_task.task_id === task.id && room_task.room_id === room.id
+        room.room_tasks.find(room_task => {
+            if (room_task.task_id === task.id && room_task.room_id === room.id){
+                checkBox.checked = room_task.task_status
+            }
         })
-        checkBox.checked = currentRoomTasks.task_status
 
-        roomName.append(roomStatus, newTask, roomTasks, deleteCard)
+        roomCard.append(roomStatus, roomTasks, buttonCard)
         roomTasks.appendChild(taskName)
         taskName.prepend(checkBox)
         taskName.appendChild(deleteButton)
@@ -92,13 +102,10 @@ fetch(`http://localhost:3000/rooms`)
                         'Accept':'application/json',
                         'Content-Type':'application/json'
                     },
-                    body: JSON.stringify({task_id: taskId})
+                    body: JSON.stringify({id: roomName.value, task_id: taskId})
                 }).then(response => response.json())
                     .then(room => {
                         roomStatus.innerText = room.status + "% Completed"
-
-                        console.log(room)
-                        console.log(roomName)
                     })
                 })
             })
@@ -123,7 +130,7 @@ fetch(`http://localhost:3000/rooms`)
         taskDescription.placeholder = 'Task Desctiption'
         submit.innerText = 'Submit'
         
-        roomName.appendChild(formCard)
+        roomCard.appendChild(formCard)
         formCard.append(taskForm,taskCard)
         taskForm.append(taskName, taskDescription, submit)
 
@@ -134,18 +141,7 @@ fetch(`http://localhost:3000/rooms`)
         
         taskForm.addEventListener('submit', function(event) {
             event.preventDefault()
-            const newTask = document.createElement('p')
-            const newCheckBox = document.createElement('input')
-            const newDeleteButton = document.createElement('button')
 
-            newCheckBox.type = 'checkbox'
-            newTask.innerText = taskName.value
-            newDeleteButton.id = 'task-delete'
-            newDeleteButton.innerText = 'remove'    
-
-            roomTasks.appendChild(newTask)
-            newTask.prepend(newCheckBox)
-            newTask.appendChild(newDeleteButton)
 
             fetch(`http://localhost:3000/tasks`,{
                 method: 'POST',
@@ -156,20 +152,24 @@ fetch(`http://localhost:3000/rooms`)
                 body: JSON.stringify(
                     {name:taskName.value,
                     description:taskDescription.value,
-                    status:false,
                     room_id:formCard.value}
                 )
             })
+            
+            const newTask = document.createElement('p')
+            const newCheckBox = document.createElement('input')
+            const newDeleteButton = document.createElement('button')
+
+            newCheckBox.type = 'checkbox'
+            newTask.innerText = taskName.value
+            newDeleteButton.id = 'task-delete'
+            newDeleteButton.innerText = 'remove' 
+            newCheckBox.checked = false
+
+            roomTasks.appendChild(newTask)
+            newTask.prepend(newCheckBox)
+            newTask.appendChild(newDeleteButton)
             formCard.style.display = 'none'
         })
     }) 
 }))
-
-
-// checkBox.addEventListener('click', {
-
-// modal or create a form and asign it (w, h, z) positions and set default to hidden
-
-//     fetch(`http://localhost:3000/tasks/${task.id}`,
-//     method: 'PATCH')
-// }

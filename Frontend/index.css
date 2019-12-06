@@ -1,6 +1,7 @@
 
 body{
     background-color: #d9d1d0;
+    box-sizing: content-box;
 }
 
 header{
@@ -11,6 +12,7 @@ header{
     font-family: objektiv-mk2, sans-serif;
     color: #096E6D;
     display: flex;
+    flex-flow: wrap;
     justify-content: space-between;
     align-content: center;
     border-radius: 50%;
@@ -18,8 +20,8 @@ header{
 }
 
 header > img{
-    height:70px;
-    width: 280px;
+    height:auto;
+    width: 320px;
 }
 
 header > nav{
@@ -35,6 +37,15 @@ header > nav > a{
     color: #096E6D;
 }
 
+#login-buttpn{
+    background-color: #E2DCDC;
+    border: none;
+    color: #096E6D;
+    font-size: large;
+    font-weight: 400;
+    font-family: objektiv-mk2, sans-serif;
+}
+
 #slideshow {
     overflow: hidden;
     margin-top: 8px;
@@ -43,6 +54,7 @@ header > nav > a{
 .slide-wrapper {
 width: 2912px;
 -webkit-animation: slide 25s ease infinite;
+flex-wrap: nowrap;
 }
 
 .slide {
@@ -94,6 +106,23 @@ float: left;
     justify-content: space-between;
 }
 
+.steps > #step-home{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-width: 2px;
+    border-color: #096E6D;
+    padding: 12px;
+    width: 29%;
+    height: 341.333px;
+    font-size: 14pt;
+    background-color: #E2DCDC;
+    overflow: scroll;
+    font-size: 12pt;
+    font-weight: 400;
+    /* justify-content: space-between; */
+}
+
 .steps > #step{
     display: flex;
     flex-direction: column;
@@ -114,21 +143,21 @@ float: left;
     font-weight: 400;
 }
 
-.steps > #step > #one{
+.steps > #step-home > #one{
     width: 100%;
     height: auto;
     align-self: center;
     overflow: hidden;
 }
 
-.steps > #step > #three{
+.steps > #step-home > #three{
     width: 100%;
     height: auto;
     align-self: center;
     overflow: hidden;
 }
 
-.steps > #step > #five{
+.steps > #step-home > #five{
     width: 100%;
     height: auto;
     align-self: center;
@@ -138,7 +167,40 @@ float: left;
 .steps > #step{
     display: flex;
     flex-direction: column;
+    border: solid;
+    border-width: 2px;
+    border-color: #096E6D;
+    padding: 0px;
+    width: 29%;
+    height: 375px;
+    font-size: 14pt;
+    background-color: #E2DCDC;
+    overflow: scroll;
+    margin-bottom: 46px;
 }
+
+.steps > #step > h3{
+    background-color: #443140;
+    width: 100%;
+    margin: 0;
+    justify-self: start;
+    color: #E2DCDC;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.steps > #step > #status{
+    padding-left: 5pt;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 2px;
+    align-self: center;
+    text-align: center;
+}
+
 
 .steps > #step > #task-list{
     font-size: 9pt;
@@ -147,7 +209,14 @@ float: left;
     margin: 5px;
 }
 
-.steps > #step > button{
+.steps > #step > #button-card{
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.steps > #step > #button-card > button{
     font-family: objektiv-mk2, sans-serif;
     color: #E2DCDC;
     align-self: center;
@@ -155,7 +224,8 @@ float: left;
     margin-bottom: 2%;
     font-size: 10pt;
     font-weight: 900;
-    width: fit-content;}
+    width: 37%;
+}
 
 .steps > #step > #delete-button{
     align-self: right;
@@ -214,7 +284,7 @@ float: left;
 p{
     display: flex;
     flex-direction: row;
-    text-align: left;
+    justify-content: space-between;
 }
 
 button{
@@ -222,4 +292,122 @@ button{
     margin-left: 2%;
     background-color: #443140;
     color: #E2DCDC;
+}
+
+/* #login-form{
+    display: flex;
+    flex-direction: row;
+} */
+
+.w3-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+div {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+
+}
+
+.w3-card-4, .w3-hover-shadow:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.w3-modal-content {
+    margin: auto;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+#login-form{
+    display: flex;
+    margin: 1%;
+    padding: 2px;
+    width: fit-content%;
+    font-family: objektiv-mk2, sans-serif;
+
+}
+
+#login-form > label{
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+}
+
+#login-form > input{
+    background-color: rgb(243, 243, 243);
+}
+
+.w3-container-w3-teal{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#fake-button{
+    margin: 1%;
+    width: fit-content;
+    font-size: 10pt;
+    font-weight: 400;
+    border: solid 2px;
+    background-color: #443140;
+    color: #E2DCDC;
+    padding: 2px;
+    border-style: outset;
+    align-self: flex-end;
+    border-radius: 1px;
+    padding: 2px;
+}
+
+a{
+    text-decoration: none;
+    color: #E2DCDC;
+    padding: 5px;
+}
+
+#signup{
+    color: #E2DCDC;
+    text-align: center;
+    border: outset 2px;
+    width: 50%;
+    align-self: center;
+    border-color: #443140;
+    background-color: #443140;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #096E6D;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    background-color: #E2DCDC;
+    border-radius: 50%;
+    align-items: center;
+}
+
+#footer{
+    text-decoration: none;
+    color: #096E6D;
+    font-family: objektiv-mk2, sans-serif;
 }

@@ -13,17 +13,17 @@ class TasksController < ApplicationController
         @task = Task.create(
             name: params[:name],
             description: params[:description],
-            status: params[:status],
         )
         @roomTask = RoomTask.create(
             room_id: params[:room_id],
-            task: @task
+            task: @task,
+            task_status: false
         )
         render json: @task, include: [:rooms]
     end
     
     def update
-        @task = Task.find_by(params[:id])
+        @task = Task.find_by([:id])
         Task.update
     end
 

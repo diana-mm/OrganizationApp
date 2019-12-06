@@ -22,24 +22,21 @@ class RoomsController < ApplicationController
     end
     
     def update
-        # byebug
-        @room = Room.find_by(params[:id])
-
+        @room = Room.find(params[:id])
         @room.status_boolean(params[:task_id])
-        # byebug
         render json: @room
 
     end  
 
     def destroy
         @room = Room.find(params[:id])
-        @room.destroy
+        @room.remove_task(params[:task_id])
     end
 
     private
 
-    def cleaner_params
-        params.require(:cleaner).permit(room_taks_id: [])
+    def room_params
+        params.require(:room).permit(room_taks_id: [])
     end
 
 end

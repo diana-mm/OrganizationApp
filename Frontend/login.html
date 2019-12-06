@@ -13,18 +13,38 @@
         <nav>
             <a href='#target-intro'>DIY</a>
             <a> | </a>
-            <a>Hire Help</a>
+            <a href="https://www.taskrabbit.com/">Hire Help</a>
         </nav>
         <img src="https://i.imgur.com/npDRB1l.png"/>
         <nav>
             <a href='index.html'>Home</a>
             <a> | </a>
-            <a href='login.html'>Login</a>
+            <button id='login-buttpn' onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Login</button>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-right w3-card-4">
+                    <header class="w3-container-w3-teal"> 
+                    <span onclick="document.getElementById('id01').style.display='none'" 
+                    class="w3-button w3-display-topright">&times;</span>
+                    <a id='signup' href='login.html'>Sign Up!</a>
+                    <form id='login-form' onsubmit="">
+                        <label>Username: </label>
+                        <input id='name'>
+                        <label>Password: </label>
+                        <input type='password' id='password'>
+                    </form>
+                    <button id='fake-button'> <a href='userpage.html'>submit</a></button>
+                </div>
+            </div>    
         </nav>
     </header>
+    <h1>Coming Soon!</h1>
     <section id='intro'>
-        <a href='userpage.html'>Click It</a>
+       
     </section>
-
+    <footer>
+        <p><a id='footer' href='https://github.com/diana-mm'>Created By: Diana Miller</a> </p>
+        <p><a id='footer' href="mailto:diana.m.miller1@gmail.com">Contact Info</a></p>
+        <p id="footer">© 2019</p>   
+    </footer>    
 </body>
 </html>

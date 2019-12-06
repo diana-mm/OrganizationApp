@@ -13,13 +13,30 @@
         <nav>
             <a href='#target-intro'>DIY</a>
             <a> | </a>
-            <a>Hire Help</a>
+            <a href="https://www.taskrabbit.com/">Hire Help</a>
         </nav>
-        <img src="https://i.imgur.com/npDRB1l.png"/>
+        <img src="https://i.imgur.com/npDRB1l.png" />
         <nav>
             <a href='index.html'>Home</a>
             <a> | </a>
-            <a href='login.html'>Login</a>
+            <button id='login-buttpn' onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Login</button>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-right w3-card-4">
+                    <header class="w3-container-w3-teal"> 
+                    <span onclick="document.getElementById('id01').style.display='none'" 
+                    class="w3-button w3-display-topright">&times;</span>
+                    <a id='signup' href='login.html'>Sign Up!</a>
+                    <form id='login-form' onsubmit="">
+                        <label>Username: </label>
+                        <input id='name'>
+                        <label>Password: </label>
+                        <input type='password' id='password'>
+                    </form>
+                    <button id='fake-button'> <a href='userpage.html'>submit</a></button>
+                </div>
+            </div>    
+                              
+                  <!-- <button>Login</button> -->
         </nav>
     </header>
     <div id="slideshow">
@@ -35,32 +52,37 @@
 
         <h2><a href='#target-intro'>How to Organize!</a></h2>
         <div class="steps">
-            <h3 id="step">Step 1: Take All Items Out
+            <h3 id="step-home">Step 1: Take All Items Out
                 <p>Take everything and put it out in the open. This will help you see what you have and make it easier to visualize how to put it away!</p>
                 <img id='one' src='https://images.unsplash.com/photo-1474666488182-66ec723476c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80'/>
             </h3>
-            <h3 id="step">Step 2: Go Through Items and Purge
+            <h3 id="step-home">Step 2: Go Through Items and Purge
                 <p>The time has come to go through and get rid of things. If you haven’t used it recently, throw it away, recycle, or donate it. If it’s broken, you don’t need it anymore. If it’s stained or worn out, get rid of it. The more you can get rid of, the less cluttered your space will feel. You have this beautiful blank slate in front of you; you only want to put back what is absolutely necessary!</p>
             </h3>
-            <h3 id="step">Step 3: Sort Like Items
+            <h3 id="step-home">Step 3: Sort Like Items
                 <p>Once you have finished purging things group like items together. This will help you figure out how to organize each category later!</p>
                 <img id='three' src='https://images.unsplash.com/photo-1529488260486-8695a04beaee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80'/>
             </h3>
-            <h3 id="step">Step 4: Store Like Items Together
+            <h3 id="step-home">Step 4: Store Like Items Together
                 <p>Once everything has been sorted you can see how much room each category of items will take. Get creative and store each category in the same place, this does not require you to purchase bins or other organizational tools, use shoeboxes, shipping boxes, or other unique storage options!</p>
             </h3>
-            <h3 id="step">Step 5: Label The Categories of Items
+            <h3 id="step-home">Step 5: Label The Categories of Items
                 <p>Labeling the bin, box, or cabinet that you stored your items in will help you remember where everything is AND promote putting things away later!</p>
                 <img id='five' src='https://images.unsplash.com/photo-1527849214787-c99cd25c2f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80'/>
             </h3>
-            <h3 id="step">Step 6: Put Things Away
+            <h3 id="step-home">Step 6: Put Things Away
                 <p>Now that everything is sorted, put in bins, and labeled; it is time to put things back! Put most used items in the most accessible place then fill in the rest of the space with all the other items! It is also helpful to put things in places that make sense for the items (maybe don't put toilet paper under the bed!)</p>
             </h3>
-            <h3 id="step">Step 7: Don't Be Afraid to Change Your System
+            <h3 id="step-home">Step 7: Don't Be Afraid to Change Your System
                 <p>Never be afraid to change your organization system! If your categorize aren't working for you or the location where you put something seems off; move it! The whole point in organizing it to make your life easier! Do what you need to do to encourage putting things in their spot!</p>
             </h3>
         </div>
     </section>
+    <footer>
+        <p><a id='footer' href='https://github.com/diana-mm'>Created By: Diana Miller</a> </p>
+        <p><a id='footer' href="mailto:diana.m.miller1@gmail.com">Contact Info</a></p>
+        <p id="footer">© 2019</p>   
+    </footer>
  <script src='index.js'></script>
 </body>
 </html>
