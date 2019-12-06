@@ -125,16 +125,17 @@ float: left;
 
 .steps > #step{
     display: flex;
+    flex-wrap: unset;
     flex-direction: column;
     border: solid;
     border-width: 2px;
     border-color: #096E6D;
-    padding: 12px;
-    width: 29%;
-    height: 341.333px;
+    width: 30%;
+    height: 355px;
     font-size: 14pt;
     background-color: #E2DCDC;
     overflow: scroll;
+    margin: 7px;
     /* justify-content: space-between; */
 }
 
@@ -164,21 +165,6 @@ float: left;
     overflow: hidden;
 }
 
-.steps > #step{
-    display: flex;
-    flex-direction: column;
-    border: solid;
-    border-width: 2px;
-    border-color: #096E6D;
-    padding: 0px;
-    width: 29%;
-    height: 375px;
-    font-size: 14pt;
-    background-color: #E2DCDC;
-    overflow: scroll;
-    margin-bottom: 46px;
-}
-
 .steps > #step > h3{
     background-color: #443140;
     width: 100%;
@@ -206,7 +192,7 @@ float: left;
     font-size: 9pt;
     font-weight: 400;
     list-style: none;
-    margin: 5px;
+    margin: 4px;
 }
 
 .steps > #step > #button-card{
@@ -214,6 +200,7 @@ float: left;
     justify-content: space-around;
     margin: 5px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .steps > #step > #button-card > button{
@@ -234,8 +221,8 @@ float: left;
 #form-card{
     background-color: #443140;
     z-index: 1;
-    margin-top: -75%;
-    width: 60%;
+    margin-top: -80%;
+    width: 80%;
     padding: 20px;
     border: 2px solid #E2DCDC;
     border-style: outset;
@@ -245,6 +232,7 @@ float: left;
     align-items: left;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
 }
 
 #form-card > span{
@@ -256,23 +244,25 @@ float: left;
     padding: 1px;
     border-style: outset;
     margin-top: 4px;
-    margin-left: 100%;
-    margin-right: 27px;
-    align-self: center;
+    align-self: flex-end;
+    width: fit-content;
 }
 
 #form-card > form{
     display: flex;
     flex-flow: column wrap;
+    width: 100%;
+    margin-top: 2px;
 }
 
 #form-card > form > input{
     margin: 2px;
     background-color: rgb(236, 231, 231);
     color: #443140;
+    width:100%;
+    margin-bottom: 6px;
 }
 #form-card > form > #submit{
-    margin-right: 70%;
     font-size: 8pt;
     font-weight: 400;
     border: solid 2px;
@@ -280,6 +270,8 @@ float: left;
     color: #443140;
     padding: 2px;
     border-style: outset;
+    width: fit-content;
+    justify-self: right;
 }
 p{
     display: flex;
@@ -320,7 +312,6 @@ div {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
-
 }
 
 .w3-card-4, .w3-hover-shadow:hover {
@@ -343,7 +334,6 @@ div {
     padding: 2px;
     width: fit-content%;
     font-family: objektiv-mk2, sans-serif;
-
 }
 
 #login-form > label{
