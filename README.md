@@ -28,4 +28,7 @@ Backend has been deployed to heroku:
     <li><a href='https://ancient-retreat-86627.herokuapp.com/rooms'> Rooms can be found here</a>
     <li><a href='https://ancient-retreat-86627.herokuapp.com/tasks'> Tasks can be found here</a>
     <li><a href='https://ancient-retreat-86627.herokuapp.com/room_tasks'> RoomTasks can be found here</a>
-<ul>
+</ul>
+
+Frontend has been deployed to Firebase:
+<ul><a href='https://get-organized-d93d1.firebaseapp.com/index.html'>Find the app here</a></ul>
