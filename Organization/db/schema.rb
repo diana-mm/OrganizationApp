@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_12_03_204634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "room_tasks", force: :cascade do |t|
-    t.integer "room_id"
-    t.integer "task_id"
+    t.bigint "room_id"
+    t.bigint "task_id"
     t.boolean "task_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
