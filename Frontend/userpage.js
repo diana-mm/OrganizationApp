@@ -1,7 +1,7 @@
 const roomCardHolder = document.querySelector('.steps')
 const newRoomForm = document.querySelector('#new-room-form')
 
-fetch(`http://localhost:3000/rooms`)
+fetch(`https://ancient-retreat-86627.herokuapp.com/rooms`)
 .then(response => response.json())
 .then(rooms => rooms.forEach(room => {
     const roomCard = document.createElement('div')
@@ -40,7 +40,7 @@ fetch(`http://localhost:3000/rooms`)
 
     //     roomCard.appendChild(newRoom, newTask)
 
-    //     fetch(`http://localhost:3000/rooms`,{
+    //     fetch(`https://ancient-retreat-86627.herokuapp.com/rooms`,{
     //         method: 'POST',
     //         headers:{
     //             'Accept':'application/json',
@@ -56,7 +56,7 @@ fetch(`http://localhost:3000/rooms`)
         const checkBox = document.createElement('input')
         const deleteButton = document.createElement('button')
 
-        fetch(`http://localhost:3000/tasks/${task.id}`)
+        fetch(`https://ancient-retreat-86627.herokuapp.com/tasks/${task.id}`)
             .then(response => response.json())
             .then(task =>{
                 task.room_tasks.find(room_task => {
@@ -68,7 +68,7 @@ fetch(`http://localhost:3000/rooms`)
                 deleteButton.addEventListener('click', function(event) {
                     event.preventDefault()
                     event.target.parentNode.remove()
-                    fetch(`http://localhost:3000/room_tasks/${deleteButton.value}`,{
+                    fetch(`https://ancient-retreat-86627.herokuapp.com/room_tasks/${deleteButton.value}`,{
                         method: 'DELETE'
                     })
                 })
@@ -96,7 +96,7 @@ fetch(`http://localhost:3000/rooms`)
 
             checkBox.addEventListener('click', function(event){
                 const taskId = checkBox.value
-                fetch(`http://localhost:3000/rooms/${roomName.value}`,{
+                fetch(`https://ancient-retreat-86627.herokuapp.com/rooms/${roomName.value}`,{
                     method:'PATCH',
                     headers: {
                         'Accept':'application/json',
@@ -143,7 +143,7 @@ fetch(`http://localhost:3000/rooms`)
             event.preventDefault()
 
 
-            fetch(`http://localhost:3000/tasks`,{
+            fetch(`https://ancient-retreat-86627.herokuapp.com/tasks`,{
                 method: 'POST',
                 headers:{
                     'Accept':'application/json',

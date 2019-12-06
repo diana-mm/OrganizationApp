@@ -21,3 +21,11 @@ This project is a work in progress. Future features include:
 </ul>
 
 Thank you for checking out my Organization App!
+
+## Update:
+Backend has been deployed to heroku:
+<ul>
+    <li><a href='https://ancient-retreat-86627.herokuapp.com/rooms'> Rooms can be found here</a>
+    <li><a href='https://ancient-retreat-86627.herokuapp.com/tasks'> Tasks can be found here</a>
+    <li><a href='https://ancient-retreat-86627.herokuapp.com/room_tasks'> RoomTasks can be found here</a>
+<ul>
