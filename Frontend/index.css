@@ -273,6 +273,7 @@ float: left;
     width: fit-content;
     justify-self: right;
 }
+
 p{
     display: flex;
     flex-direction: row;
